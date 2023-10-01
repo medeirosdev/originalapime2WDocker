@@ -24,7 +24,7 @@ def verifica_string_em_lista(string_a_verificar, lista_de_strings):
 
 @app.route('/test' , methods=['GET'])
 def getTest():
-    return jsonify({'message': 'API funcionando'}), 200
+    return jsonify({'message': 'API 3'}), 200
 
 
 
@@ -33,7 +33,7 @@ def getTestBody():
     try:
         # Verifica se a solicitação possui dados JSON
         if request.is_json:
-            data = request.get_json()  # Obtém o JSON da solicitação
+            data = request.get_json(force=True)  # Obtém o JSON da solicitação
             return jsonify(data)  # Retorna o JSON como resposta
         else:
             return jsonify({'message': 'Solicitação não contém JSON'}), 400
