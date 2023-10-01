@@ -31,12 +31,9 @@ def getTest():
 @app.route('/testbody' , methods=['GET'])
 def getTestBody():
     try:
-        # Verifica se a solicitação possui dados JSON
-        if request.is_json:
-            data = request.get_json(force=True)  # Obtém o JSON da solicitação
-            return jsonify(data)  # Retorna o JSON como resposta
-        else:
-            return jsonify({'message': 'Solicitação não contém JSON'}), 400
+        username = request.form['username']
+        token = request.form['token']
+        return jsonify({'message': token}), 200
     except Exception as e:
         return jsonify({'message': 'Erro ao processar JSON'}), 400
 
