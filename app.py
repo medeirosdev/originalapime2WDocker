@@ -6,7 +6,7 @@ from flask_cors import CORS
 app = Flask(__name__)
 
 # Configuração do Flask-CORS para permitir apenas o IP específico
-CORS(app, resources={r"/*": {"origins": "http://192.168.0.168"}})
+
 
 
 publicList = ["8c848e5fc392204f1c85f0e5d0b57f6a7dbd5941e4e1646df014c34d0b0172d8587c5dc4f3bf84475a58497f25b665effec56dd0778fb6b51584132cccfdfd91",
@@ -38,8 +38,8 @@ def getData():
     statusCheckPrivate = verifica_string_em_lista(privateKey, privateKeyOriginal)
     if statusCheckPrivate == False:
         return jsonify({'message': 'Chave publica errada'}), 400
-    if statusCheckPrivate == False:
-        return jsonify({'message': 'Chave privada errada'}), 400
+    #if statusCheckPrivate == False:
+    #    return jsonify({'message': 'Chave privada errada'}), 400
 
     data = APInstagram(username, token)
 
