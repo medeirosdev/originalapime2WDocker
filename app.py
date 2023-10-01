@@ -1,9 +1,10 @@
+import flask
 from flask import Flask, request, jsonify
 from APIME2Check import APInstagram
 from flask_cors import CORS
 
 
-app = Flask(__name__)
+app = flask.Flask(__name__)
 
 # Configuração do Flask-CORS para permitir apenas o IP específico
 
@@ -27,8 +28,8 @@ def getTest():
 
 @app.route('/testbody' , methods=['GET'])
 def getTestBody():
-    data = request.get_json()
-    return jsonify(data), 200
+    json_data = flask.request.json
+    return jsonify(json_data), 200
 
 @app.route('/apime2check')
 def getData():
