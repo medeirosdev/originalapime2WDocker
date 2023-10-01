@@ -1,6 +1,13 @@
 from flask import Flask, request, jsonify
 from APIME2Check import APInstagram
+from flask_cors import CORS
+
+
 app = Flask(__name__)
+
+# Configuração do Flask-CORS para permitir apenas o IP específico
+CORS(app, resources={r"/*": {"origins": "http://192.168.0.168"}})
+
 
 publicList = ["8c848e5fc392204f1c85f0e5d0b57f6a7dbd5941e4e1646df014c34d0b0172d8587c5dc4f3bf84475a58497f25b665effec56dd0778fb6b51584132cccfdfd91",
             "13d83467c8e942927b2a4e4b64607930828fe334d1ba40c6dfad9ddb75f3515ef7fe598b5f9d2c3d8e558773f8c169855a9ac55323b0275333e4b59f398a2180",
