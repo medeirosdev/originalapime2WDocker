@@ -23,6 +23,13 @@ def verifica_string_em_lista(string_a_verificar, lista_de_strings):
 def getTest():
     return jsonify({'message': 'API funcionando'}), 200
 
+
+
+@app.route('/testbody' , methods=['GET'])
+def getTest():
+    data = request.get_json()
+    return jsonify(data), 200
+
 @app.route('/apime2check')
 def getData():
     data = request.get_json()
@@ -43,9 +50,9 @@ def getData():
     if statusCheckPrivate == False:
            return jsonify({'message': 'Chave privada errada'}), 400
 
-    data = APInstagram(username, token)
+    dataUser = APInstagram(username, token)
 
-    return jsonify(data, 200)
+    return jsonify(dataUser, 200)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
