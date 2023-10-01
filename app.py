@@ -30,7 +30,7 @@ def getTest():
 
 @app.route('/testbody' , methods=['GET'])
 def getTestBody():
-    data = request.get_json(force=True)
+    data =  request.data
     return jsonify(data), 200
 
 @app.route('/apime2check')
