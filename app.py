@@ -31,8 +31,8 @@ def getTest():
 @app.route('/testbody' , methods=['GET'])
 def getTestBody():
     try:
-        username = request.form['username']
-        token = request.form['token']
+        username = request.form.get['username']
+        token = request.form.get['token']
         return jsonify({'message': token}), 200
     except Exception as e:
         return jsonify({'message': 'Erro ao processar JSON'}), 400
