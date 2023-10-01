@@ -26,7 +26,7 @@ def getTest():
 
 
 @app.route('/testbody' , methods=['GET'])
-def getTest():
+def getTestBody():
     data = request.get_json()
     return jsonify(data), 200
 
