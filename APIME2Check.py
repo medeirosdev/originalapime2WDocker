@@ -3,7 +3,6 @@ import facebook
 
 def APInstagram(username, token):
     graph = facebook.GraphAPI(access_token=token, version=3.1)
-    # POST PARA TESTE = CnfaDpLpvMo
     data = graph.request(
         '17841454088809121?fields=business_discovery.username(' + username + '){followers_count,follows_count,'
                                                                              'media_count,biography,id,'
