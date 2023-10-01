@@ -1,3 +1,5 @@
+import json
+
 import flask
 from flask import Flask, request, jsonify
 from APIME2Check import APInstagram
@@ -28,8 +30,8 @@ def getTest():
 
 @app.route('/testbody' , methods=['GET'])
 def getTestBody():
-    json_data = flask.request.json
-    return jsonify(json_data), 200
+    data = json.loads(request.data)
+    return jsonify(data), 200
 
 @app.route('/apime2check')
 def getData():
