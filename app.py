@@ -30,8 +30,15 @@ def getTest():
 
 @app.route('/testbody' , methods=['GET'])
 def getTestBody():
-    username = request["username"]
-    return jsonify(username), 200
+    try:
+        # Verifica se a solicitação possui dados JSON
+        if request.is_json:
+            data = request.get_json()  # Obtém o JSON da solicitação
+            return jsonify(data)  # Retorna o JSON como resposta
+        else:
+            return jsonify({'message': 'Solicitação não contém JSON'}), 400
+    except Exception as e:
+        return jsonify({'message': 'Erro ao processar JSON'}), 400
 
 @app.route('/apime2check')
 def getData():
