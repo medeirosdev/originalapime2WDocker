@@ -20,11 +20,11 @@ privateKeyOriginal = "f03ddd814defc74c96f2b087f49440e620b698d2028209f969e28e3137
 #==================================
 def verifica_string_em_lista(string_a_verificar, lista_de_strings):
     return string_a_verificar in lista_de_strings
-#=================================
+#================================
 
 @app.route('/test' , methods=['GET'])
 def getTest():
-    return jsonify({'message': 'API 3'}), 200
+    return jsonify({'message': 'Salve da ME2!'}), 200
 
 
 
